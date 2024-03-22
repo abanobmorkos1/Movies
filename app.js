@@ -29,7 +29,7 @@ async function getmovies() {
     }
 }
 
-app.get("", async (req, res) => {
+app.get("/", async (req, res) => {
     try {
         const movies = await getmovies();
         res.json(movies); // Sending the movies data as JSON response
