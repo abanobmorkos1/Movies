@@ -32,7 +32,7 @@ async function getmovies() {
 app.get("/", async (req, res) => {
     try {
         const movies = await getmovies();
-        res.json(movies); // Sending the movies data as JSON response
+        return res.json(movies); // Sending the movies data as JSON response
     } catch (error) {
         res.status(500).json({ error: "Internal server error" });
     }
