@@ -5,12 +5,16 @@ const express = require("express");
 const PORT = process.env.PORT || 4000;
 const app = express();
 
-const url = 'https://moviesverse1.p.rapidapi.com/top-box-office';
+key = process.env.XRapidAPIKey
+host = process.env.XRapidAPIHost
+link = process.env.url 
+
+const url = link;
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '213c0da2c1msh8abea8349ad87cbp13dbe8jsn5af631b48b12',
-		'X-RapidAPI-Host': 'moviesverse1.p.rapidapi.com'
+		'X-RapidAPI-Key': key,
+		'X-RapidAPI-Host': host
 	}
 };
 
@@ -25,7 +29,7 @@ async function getmovies() {
     }
 }
 
-app.get("/", async (req, res) => {
+app.get("", async (req, res) => {
     try {
         const movies = await getmovies();
         res.json(movies); // Sending the movies data as JSON response
